@@ -10,7 +10,8 @@ export default function Pie({
     innerRadius, 
     outerRadius,
     cornerRadius,
-    padRadius
+    padRadius,
+    spinToAngle
 })
 { 
       const pieArcData = d3.pie().value(d => d[valueAttribute])(pieData);
@@ -25,7 +26,11 @@ export default function Pie({
     return(
         <PieContainer
             viewBox={"-320 -320 640 640" }
-            style={{maxWidth: width}} 
+            style={{
+              maxWidth: width, 
+              transition: 'transform ease-out 3s', 
+              transform: `rotate(${spinToAngle}deg)`
+            }} 
             textAnchor="middle" 
             fontFamily="sans-serif"
         >
