@@ -2,16 +2,25 @@ import * as d3 from 'd3'
 import PieContainer from './PieContainer'
 import PieSlice from './PieSlice'
 
-export default function Pie({ pieData, valueAttribute, textAttribute, width })
+export default function Pie({ 
+    pieData, 
+    valueAttribute, 
+    textAttribute, 
+    width, 
+    innerRadius, 
+    outerRadius,
+    cornerRadius,
+    padRadius
+})
 { 
       const pieArcData = d3.pie().value(d => d[valueAttribute])(pieData);
   
       const arcPie = d3.arc()
-      .innerRadius(210)
-      .outerRadius(310)
-      .padRadius(300)
-      .padAngle(2 / 300)
-      .cornerRadius(8);
+      .innerRadius(innerRadius)
+      .outerRadius(outerRadius)
+      .padRadius(padRadius)
+      .padAngle(2 / padRadius)
+      .cornerRadius(cornerRadius);
 
     return(
         <PieContainer

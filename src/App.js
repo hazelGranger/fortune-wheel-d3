@@ -20,7 +20,11 @@ function App() {
           pieData={fruits}
           valueAttribute={"count"}
           textAttribute={"name"}
-          width={"300px"}
+          width={"400px"}
+          innerRadius={0}
+          outerRadius={300}
+          padRadius={300}
+          cornerRadius={0}
         />
     </div>
   );
