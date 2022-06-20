@@ -5,11 +5,11 @@ import Pie from './Components/Pie/Pie';
 function App() {
 
   const fruits = [
-    {name: "Check in Question", probability: 1},
-    {name: "Check in Question", probability: 1},
-    {name: "Check in Question", probability: 1},
-    {name: "Check in Question", probability: 1},
-    {name: "Check in Question", probability: 1}
+    {name: "Check-in Question", probability: 1},
+    {name: "A plant tour", probability: 1},
+    {name: "Feel and Need", probability: 1},
+    {name: "Happiness Rating", probability: 1},
+    {name: "A Joke?", probability: 1}
   ];
 
   const [rotateAngle, setRotateAngle] = useState(0);
