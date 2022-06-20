@@ -4,7 +4,7 @@ import Pie from './Components/Pie/Pie';
 
 function App() {
 
-  const fruits = [
+  const wheelItems = [
     {name: "Check-in Question", probability: 1},
     {name: "A plant tour", probability: 1},
     {name: "Feel and Need", probability: 1},
@@ -20,8 +20,9 @@ function App() {
 
   return (
     <div className = "App">
+      <div className=''>
         <Pie 
-          pieData={fruits}
+          pieData={wheelItems}
           valueAttribute={"probability"}
           textAttribute={"name"}
           width={"400px"}
@@ -32,14 +33,14 @@ function App() {
           spinToAngle={rotateAngle}
         />
         <button onClick={() => {
-            const spinToindex = generateRandomNumber(fruits.length);
+            const spinToindex = generateRandomNumber(wheelItems.length);
             
-            const spinToItem = fruits[spinToindex];
-            const total = fruits.reduce((ac, v) => ac + v.probability, 0);
+            const spinToItem = wheelItems[spinToindex];
+            const total = wheelItems.reduce((ac, v) => ac + v.probability, 0);
             console.log(spinToindex, spinToItem);
 
-            const turns = generateRandomNumber(5) + 1; // rotate 0 - 5 turns
-            const angleBefore = fruits.reduce((ac, v, i) => { 
+            const turns = generateRandomNumber(7) + 1; // rotate 0 - 5 turns
+            const angleBefore = wheelItems.reduce((ac, v, i) => { 
               console.log(i, spinToindex)
               return i < spinToindex ? (ac + v.probability) : ac + 0; 
               },
@@ -47,13 +48,14 @@ function App() {
 
             const leastAngle = (spinToItem.probability * Math.random() + angleBefore ) / total * 360;
 
-            const angle = leastAngle + turns * 360;
+            const angle = leastAngle + turns * 360 - 90;
 
             console.log(total,angleBefore, leastAngle, angle, rotateAngle);
 
             setRotateAngle(-angle);
 
         }}>Spin</button>
+      </div>
     </div>
   );
 }
