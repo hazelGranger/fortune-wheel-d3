@@ -20,19 +20,21 @@ function App() {
 
   return (
     <div className = "App">
-      <div className=''>
+      <div className='Wheel-holder'>
         <Pie 
           pieData={wheelItems}
           valueAttribute={"probability"}
           textAttribute={"name"}
-          width={"400px"}
+          width={"700px"}
           innerRadius={0}
           outerRadius={300}
           padRadius={300}
           cornerRadius={0}
           spinToAngle={rotateAngle}
         />
-        <button onClick={() => {
+        <div className='wheel-pointer'></div>
+      </div>
+      <button onClick={() => {
             const spinToindex = generateRandomNumber(wheelItems.length);
             
             const spinToItem = wheelItems[spinToindex];
@@ -55,7 +57,6 @@ function App() {
             setRotateAngle(-angle);
 
         }}>Spin</button>
-      </div>
     </div>
   );
 }
