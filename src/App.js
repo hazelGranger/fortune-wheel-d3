@@ -34,7 +34,9 @@ function App() {
         />
         <div className='wheel-pointer'></div>
       </div>
-      <button onClick={() => {
+      <button 
+        className='btn'
+        onClick={() => {
             const spinToindex = generateRandomNumber(wheelItems.length);
             
             const spinToItem = wheelItems[spinToindex];
